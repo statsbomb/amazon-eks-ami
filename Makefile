@@ -47,6 +47,11 @@ endif
 .PHONY: fmt
 fmt: ## Format the source files
 	$(SHFMT_COMMAND) $(SHFMT_FLAGS) --write $(MAKEFILE_DIR)
+	# remove trailing spaces
+	find "$(MAKEFILE_DIR)" \
+	-type f \
+	-not -path "$(MAKEFILE_DIR)/.git/*" \
+	-exec bash -c 'sed  "s/[[:space:]]*$$//g" $$1 > $$1.tmp && mv $$1.tmp $$1' find-sh {} \;	
 
 SHELLCHECK_COMMAND := $(shell which shellcheck)
 ifeq (, $(SHELLCHECK_COMMAND))
@@ -58,6 +63,8 @@ SHELL_FILES := $(shell find $(MAKEFILE_DIR) -type f -name '*.sh')
 lint: ## Check the source files for syntax and format issues
 	$(SHFMT_COMMAND) $(SHFMT_FLAGS) --diff $(MAKEFILE_DIR)
 	$(SHELLCHECK_COMMAND) --format gcc --severity error $(SHELL_FILES)
+	# check for trailing spaces
+	! grep -l -E ' +$$' -R --exclude-dir=".git" $(MAKEFILE_DIR)	
 
 .PHONY: test
 test: ## run the test-harness
