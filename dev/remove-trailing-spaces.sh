@@ -13,7 +13,7 @@ ROOT_DIR="$1"
 
 CHECK_ONLY="${CHECK_ONLY:-false}"
 if [ "$CHECK_ONLY" = "true" ]; then
-  if ! grep -l -E ' +$' -R --exclude-dir="$ROOT_DIR/.git" "$ROOT_DIR"; then
+  if ! grep -l -E ' +$' -R --exclude-dir='\.git' "$ROOT_DIR"; then
     exit 0
   else
     exit 1

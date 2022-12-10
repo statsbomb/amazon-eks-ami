@@ -15,7 +15,7 @@ jobs:
           days-before-close: 14
           stale-issue-message: 'Please update this issue if it applies to the latest AMI release; otherwise it will be closed soon.'
           stale-issue-label: 'stale'
-          exempt-issue-labels: 'never-stale'   
-          # empty message will prevent PR's from being staled          
+          exempt-issue-labels: 'never-stale'
+          # empty message will prevent PR's from being staled
           stale-pr-message: ''
           debug-only: true

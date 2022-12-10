@@ -128,8 +128,8 @@ AMI details:
 
 Notable changes:
 * Pin Kernel 5.4 to 5.4.209-116.367 to prevent nodes from going into Unready [#1072](https://github.com/awslabs/amazon-eks-ami/pull/1072)
-* Increase the kube-api-server QPS from 5/10 to 10/20 [#1030](https://github.com/awslabs/amazon-eks-ami/pull/1030) 
-* Update docker and containerd for [ALASDOCKER-2022-021](https://alas.aws.amazon.com/AL2/ALASDOCKER-2022-021.html) [#1056](https://github.com/awslabs/amazon-eks-ami/pull/1056) 
+* Increase the kube-api-server QPS from 5/10 to 10/20 [#1030](https://github.com/awslabs/amazon-eks-ami/pull/1030)
+* Update docker and containerd for [ALASDOCKER-2022-021](https://alas.aws.amazon.com/AL2/ALASDOCKER-2022-021.html) [#1056](https://github.com/awslabs/amazon-eks-ami/pull/1056)
 * runc version is updated to 1.1.3-1.amzn2.0.2 to include ALAS2DOCKER-2022-020 [#1055](https://github.com/awslabs/amazon-eks-ami/pull/1055)
 * Release AMI in me-central-1 with version 1.21, 1.22, 1.23. 1.20 is not supported in this region since it will be deprecated soon.
 
@@ -287,9 +287,9 @@ Binaries used to build these AMIs are published:
 
 AMI details:
 * kernel: 5.4.209-116.363.amzn2
-* dockerd: 20.10.17-1.amzn2 
-* containerd: 1.6.6-1.amzn2 
-* runc: 1.1.3-1.amzn2-1.amzn2 
+* dockerd: 20.10.17-1.amzn2
+* containerd: 1.6.6-1.amzn2
+* runc: 1.1.3-1.amzn2-1.amzn2
 * cuda: 470.57.02-1
 * nvidia-container-runtime-hook: 1.4.0-1.amzn2
 * SSM agent: 3.1.1575.0-1.amzn2
@@ -471,7 +471,7 @@ AMI details:
 Notable changes:
 * Update kubelet binaries for 1.20
 * Support packer's ami_regions feature
-* Increase /var/log/messages limit to 100M     
+* Increase /var/log/messages limit to 100M
 * Support local cluster in Outposts
 * Adding c6id, m6id, r6id to eni-max-pods.txt
 
@@ -1978,7 +1978,7 @@ Notable changes:
 - Fix Makefile indentation for 1.19 (#616)
 - Increase fs.inotify.max_user_instances to 8192 from the default of 128 (#614)
 - use dynamic lookup of docker gid (#622)
-- bump docker version to 19.03.13ce-1 (#624) 
+- bump docker version to 19.03.13ce-1 (#624)
 
 ### AMI Release v20210208
 * amazon-eks-gpu-node-1.19-v20210208
@@ -2029,7 +2029,7 @@ Binaries used to build these AMIs are published :
 * s3://amazon-eks/1.15.12/2020-11-02/
 
 Notable changes :
-* ARM AMIs built with m6g.large instance type (#601) 
+* ARM AMIs built with m6g.large instance type (#601)
 * Add Support for c6gn instance type (#597)
 * Patch for CVE-2021-3156 (https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3156)
 

@@ -1,4 +1,4 @@
-### <span style="font-family: times, serif; font-size:16pt; font-style:italic;"> EKS Logs Collector 
+### <span style="font-family: times, serif; font-size:16pt; font-style:italic;"> EKS Logs Collector
 
 <span style="font-family: calibri, Garamond, 'Comic Sans MS' ;">This project was created to collect Amazon EKS log files and OS logs for troubleshooting Amazon EKS customer support cases.</span>
 
@@ -66,7 +66,7 @@ Done... your bundled logs are located in  C:\log-collector\eks_i-0b318f704c74b6a
 ```
 
 
-### <span style="font-family: times, serif; font-size:16pt; font-style:italic;">Collect EKS logs using SSM agent 
+### <span style="font-family: times, serif; font-size:16pt; font-style:italic;">Collect EKS logs using SSM agent
 #### <span style="font-family: times, serif; font-size:16pt; font-style:italic;">To run EKS log collector script on Worker Node(s) and upload the bundle(tar) to a S3 Bucket using SSM agent, please follow below steps
 
 ##### *Prerequisites*:
@@ -75,7 +75,7 @@ Done... your bundled logs are located in  C:\log-collector\eks_i-0b318f704c74b6a
 
 * SSM agent should be installed and running on Worker Node(s). [How to Install SSM Agent link](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-manual-agent-install.html)
 
-* Worker Node(s) should have required permissions to communicate with SSM service. IAM managed role `AmazonEC2RoleforSSM` will have all the required permission for SSM agent to run on EC2 instances. The IAM managed role `AmazonEC2RoleforSSM` has `S3:PutObject` permission to all S3 resources. 
+* Worker Node(s) should have required permissions to communicate with SSM service. IAM managed role `AmazonEC2RoleforSSM` will have all the required permission for SSM agent to run on EC2 instances. The IAM managed role `AmazonEC2RoleforSSM` has `S3:PutObject` permission to all S3 resources.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Note:* For more granular control of the IAM permission check [AWS Systems Manager Permissions link ](https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-permissions-reference.html)
 
@@ -92,12 +92,12 @@ aws ssm create-document --name "EKSLogCollector" --document-type "Command" --con
 ```
 aws ssm send-command --instance-ids <EC2 Instance ID> --document-name "EKSLogCollector" --parameters "bucketName=<S3 bucket name to push the logs>" --output json
 ```
-3. To check the status of SSM command submitted in previous step use the command <br/> 
-```   
+3. To check the status of SSM command submitted in previous step use the command <br/>
+```
 aws ssm get-command-invocation --command-id "<SSM command ID>" --instance-id "<EC2 Instance ID>" --output text
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;`SSM command ID`One of the response parameters after running `aws ssm send-command` in step2<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;`EC2 Instance ID`The EC2 Instance ID provided in the `aws ssm send-command` in step2
 
-4. Once the above command is executed successfully, the logs should be present in the S3 bucket specified in the previous step. 
+4. Once the above command is executed successfully, the logs should be present in the S3 bucket specified in the previous step.
 

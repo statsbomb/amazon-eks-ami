@@ -31,7 +31,7 @@ To build an Amazon EKS Worker AMI with other versions of Kubernetes that are not
 Line Interface (AWS CLI) commands to obtain values for KUBERNETES_VERSION, KUBERNETES_BUILD_DATE, PLATFORM, ARCH from S3
 ```bash
 #List of all avalable Kuberenets Versions:
-aws s3 ls s3://amazon-eks 
+aws s3 ls s3://amazon-eks
 KUBERNETES_VERSION=1.23.9 # Chose a version and set the variable
 
 #List of all builds for the specified Kubernetes Version:
@@ -91,7 +91,7 @@ and terminates the instance after the AMI is created.
 
 ## Container Image Caching
 
-Optionally, some container images can be cached during the AMI build process in order to reduce the latency of the node getting to a `Ready` state when launched. 
+Optionally, some container images can be cached during the AMI build process in order to reduce the latency of the node getting to a `Ready` state when launched.
 
 To turn on container image caching:
 
@@ -108,7 +108,7 @@ When container image caching is enabled, the following images are cached:
 
 The account ID can be different depending on the region and partition you are building the AMI in. See [here](https://docs.aws.amazon.com/eks/latest/userguide/add-ons-images.html) for more details.
 
-Since the VPC CNI is not versioned with K8s itself, the latest version of the VPC CNI and the default version, based on the response from the EKS DescribeAddonVersions at the time of the AMI build, will be cached. 
+Since the VPC CNI is not versioned with K8s itself, the latest version of the VPC CNI and the default version, based on the response from the EKS DescribeAddonVersions at the time of the AMI build, will be cached.
 
 The images listed above are also tagged with each region in the partition the AMI is built in, since images are often built in one region and copied to others within the same partition. Images that are available to pull from an ECR FIPS endpoint are also tagged as such (i.e. `602401143452.dkr.ecr-fips.us-east-1.amazonaws.com/eks/pause:3.5`).
 
