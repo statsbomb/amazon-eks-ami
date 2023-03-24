@@ -502,13 +502,13 @@ sudo yum install -y amazon-ssm-agent
 ################################################################################
 
 BASE_AMI_ID=$(imds /latest/meta-data/ami-id)
-cat << EOF > /tmp/release
+cat << EOF > "${WORKING_DIR}/release"
 BASE_AMI_ID="$BASE_AMI_ID"
 BUILD_TIME="$(date)"
 BUILD_KERNEL="$(uname -r)"
 ARCH="$(uname -m)"
 EOF
-sudo mv /tmp/release /etc/eks/release
+sudo mv "${WORKING_DIR}/release" /etc/eks/release
 sudo chown -R root:root /etc/eks
 
 ################################################################################
