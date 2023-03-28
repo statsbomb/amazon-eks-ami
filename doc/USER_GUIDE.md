@@ -28,7 +28,7 @@ Users have the following options for specifying their own values:
 > Such variables do not appear in the default variable file, and must be overridden (if necessary) by the second method described above.
 
 <!-- template-variable-table-boundary -->
-| Variable | Default | Description |
+| Variable | Default value | Description |
 | - | - | - |
 | `additional_yum_repos` | `""` |  |
 | `ami_component_description` | ```{{user `remote_folder`}}/worker``` |  |
