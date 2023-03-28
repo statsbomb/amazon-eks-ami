@@ -27,49 +27,51 @@ Users have the following options for specifying their own values:
 > Some variables (such as `arch` and `kubernetes_version`) do not have a sensible, static default, and are satisfied by the Makefile.
 > Such variables do not appear in the default variable file, and must be overridden (if necessary) by the second method described above.
 
-| Variable | Default value | Description |
+<!-- template-variable-table-boundary -->
+| Variable | Default | Description |
 | - | - | - |
-| `additional_yum_repos` | | |
-| `ami_component_description` | ```(k8s: {{ user `kubernetes_version` }}, docker: {{ user `docker_version` }}, containerd: {{ user `containerd_version` }})``` | |
-| `ami_description` | ```EKS Kubernetes Worker AMI with AmazonLinux2 image``` | |
-| `ami_name` | ```null``` | |
-| `ami_regions` | | |
-| `ami_users` | | |
-| `arch` | ```null``` | |
-| `associate_public_ip_address` | | |
-| `aws_access_key_id` | ```{{env `AWS_ACCESS_KEY_ID`}}``` | |
-| `aws_region` | ```us-west-2``` | |
-| `aws_secret_access_key` | ```{{env `AWS_SECRET_ACCESS_KEY`}}``` | |
-| `aws_session_token` | ```{{env `AWS_SESSION_TOKEN`}}``` | |
-| `binary_bucket_name` | ```amazon-eks``` | |
-| `binary_bucket_region` | ```us-west-2``` | |
-| `cache_container_images` | ```false``` | |
-| `cni_plugin_version` | ```v0.8.6``` | |
-| `containerd_version` | ```1.6.6-1.amzn2.0.2``` | |
-| `creator` | ```{{env `USER`}}``` | |
-| `docker_version` | ```20.10.17-1.amzn2.0.1``` | |
-| `encrypted` | ```false``` | |
-| `instance_type` | ```null``` | |
-| `kernel_version` | | |
-| `kms_key_id` | | |
-| `kubernetes_build_date` | ```null``` | |
-| `kubernetes_version` | ```null``` | |
-| `launch_block_device_mappings_volume_size` | ```4``` | |
-| `pause_container_version` | ```3.5``` | |
-| `pull_cni_from_github` | ```true``` | |
-| `remote_folder` | ```/tmp``` | Directory path for shell provisioner scripts on the builder instance |
-| `runc_version` | ```1.1.4-1.amzn2``` | |
-| `security_group_id` | | |
-| `sonobuoy_e2e_registry` | | |
-| `source_ami_filter_name` | ```amzn2-ami-minimal-hvm-*``` | |
-| `source_ami_id` | | |
-| `source_ami_owners` | ```137112412989``` | |
-| `ssh_interface` | | |
-| `ssh_username` | ```ec2-user``` | |
-| `subnet_id` | | |
-| `temporary_security_group_source_cidrs` | | |
-| `volume_type` | ```gp2``` | |
+| `additional_yum_repos` | `""` |  |
+| `ami_component_description` | ```{{user `remote_folder`}}/worker``` |  |
+| `ami_description` | ```{{user `remote_folder`}}/worker``` |  |
+| `ami_name` | None |  |
+| `ami_regions` | `""` |  |
+| `ami_users` | `""` |  |
+| `arch` | None |  |
+| `associate_public_ip_address` | `""` |  |
+| `aws_access_key_id` | ```{{user `remote_folder`}}/worker``` |  |
+| `aws_region` | ```{{user `remote_folder`}}/worker``` |  |
+| `aws_secret_access_key` | ```{{user `remote_folder`}}/worker``` |  |
+| `aws_session_token` | ```{{user `remote_folder`}}/worker``` |  |
+| `binary_bucket_name` | ```{{user `remote_folder`}}/worker``` |  |
+| `binary_bucket_region` | ```{{user `remote_folder`}}/worker``` |  |
+| `cache_container_images` | ```{{user `remote_folder`}}/worker``` |  |
+| `cni_plugin_version` | ```{{user `remote_folder`}}/worker``` |  |
+| `containerd_version` | ```{{user `remote_folder`}}/worker``` |  |
+| `creator` | ```{{user `remote_folder`}}/worker``` |  |
+| `docker_version` | ```{{user `remote_folder`}}/worker``` |  |
+| `encrypted` | ```{{user `remote_folder`}}/worker``` |  |
+| `instance_type` | None |  |
+| `kernel_version` | `""` |  |
+| `kms_key_id` | `""` |  |
+| `kubernetes_build_date` | None |  |
+| `kubernetes_version` | None |  |
+| `launch_block_device_mappings_volume_size` | ```{{user `remote_folder`}}/worker``` |  |
+| `pause_container_version` | ```{{user `remote_folder`}}/worker``` |  |
+| `pull_cni_from_github` | ```{{user `remote_folder`}}/worker``` |  |
+| `remote_folder` | ```{{user `remote_folder`}}/worker``` | Directory path for shell provisioner scripts on the builder instance |
+| `runc_version` | ```{{user `remote_folder`}}/worker``` |  |
+| `security_group_id` | `""` |  |
+| `sonobuoy_e2e_registry` | `""` |  |
+| `source_ami_filter_name` | ```{{user `remote_folder`}}/worker``` |  |
+| `source_ami_id` | `""` |  |
+| `source_ami_owners` | ```{{user `remote_folder`}}/worker``` |  |
+| `ssh_interface` | `""` |  |
+| `ssh_username` | ```{{user `remote_folder`}}/worker``` |  |
+| `subnet_id` | `""` |  |
+| `temporary_security_group_source_cidrs` | `""` |  |
+| `volume_type` | ```{{user `remote_folder`}}/worker``` |  |
 | `working_dir` | ```{{user `remote_folder`}}/worker``` | Directory path for ephemeral resources on the builder instance |
+<!-- template-variable-table-boundary -->
 
 ---
 
