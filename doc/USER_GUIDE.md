@@ -21,7 +21,7 @@ Default values for most variables are defined in [a default variable file](eks-w
 Users have the following options for specifying their own values:
 
 1. Provide a variable file with the `PACKER_VARIABLE_FILE` argument to `make`. Values in this file will override values in the default variable file. Your variable file does not need to include all possible variables, as it will be merged with the default variable file.
-2. Pass a key-value pair for any template variable to `make`. These values will override any values that were specified with the first method.
+2. Pass a key-value pair for any template variable to `make`. These values will override any values that were specified with the first method. In the table below, these variables have a default value of "None".
 
 > **Note**
 > Some variables (such as `arch` and `kubernetes_version`) do not have a sensible, static default, and are satisfied by the Makefile.
