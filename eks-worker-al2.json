@@ -50,19 +50,6 @@
       "source_ami": "{{user `source_ami_id`}}",
       "ami_users": "{{user `ami_users`}}",
       "snapshot_users": "{{user `ami_users`}}",
-      "source_ami_filter": {
-        "filters": {
-          "name": "{{user `source_ami_filter_name`}}",
-          "architecture": "{{user `arch`}}",
-          "root-device-type": "ebs",
-          "state": "available",
-          "virtualization-type": "hvm"
-        },
-        "owners": [
-          "{{user `source_ami_owners`}}"
-        ],
-        "most_recent": true
-      },
       "instance_type": "{{user `instance_type`}}",
       "launch_block_device_mappings": [
         {
@@ -176,7 +163,8 @@
         "SONOBUOY_E2E_REGISTRY={{user `sonobuoy_e2e_registry`}}",
         "PAUSE_CONTAINER_VERSION={{user `pause_container_version`}}",
         "CACHE_CONTAINER_IMAGES={{user `cache_container_images`}}",
-        "WORKING_DIR={{user `working_dir`}}"
+        "WORKING_DIR={{user `working_dir`}}",
+        "INSTALL_DOCKER={{user `install_docker`}}"
       ]
     },
     {
